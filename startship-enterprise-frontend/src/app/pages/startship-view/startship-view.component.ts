@@ -33,8 +33,7 @@ export class StartshipViewComponent implements OnInit {
       danioB:this.starshipForm.get("danioB")?.value,
       danioC: this.starshipForm.get("danioC")?.value,
       velocidadLuz:this.starshipForm.get("velocidadLuz")?.value, 
-      res: this.starshipForm.get("res")?.value,
-                
+      res: this.starshipForm.get("res")?.value,                
     }    
 
     console.log(parametros);
