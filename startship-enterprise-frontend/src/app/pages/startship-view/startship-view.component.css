@@ -4,6 +4,10 @@
   outline: none;
 }
 
+html{
+  background-color: gray;
+}
+
 form{
     left: 50%;
     top: 40%;
