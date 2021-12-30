@@ -12,8 +12,8 @@ export class StartshipService {
   constructor(private http :HttpClient) {    
   }
   
-  listResultados(): Observable<Startship[]> {  
-    return this.http.get<Startship[]>(`${environment.baseUrl}/resultados`);  
+  listResultados(danioA:number, danioB:number, danioC:number, velocidadLuz:number) {  
+    return this.http.get(`${environment.baseUrl}/resultados?danioA=`+danioA+`&danioB=`+danioB+`&danioC=`+danioC+`&velocidadLuz=`+velocidadLuz);  
   } 
 
 }

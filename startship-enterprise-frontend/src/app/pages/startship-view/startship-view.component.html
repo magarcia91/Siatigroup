@@ -20,11 +20,13 @@
 </mat-form-field>
 <br><br>
 <mat-form-field>
-  <textarea matInput 
-     placeholder="Resultados" 
-     formControlName="res">
-  </textarea>
+  <mat-label>Velocidad de la luz:</mat-label>
+  <input type="text" formControlName="velocidadLuz" matInput [formControl]="starshipFormControl" placeholder="Formato 99">
 </mat-form-field>
+<br><br>
+Resultado:
+<br/>
+{{resultado}}
 <br><br> 
   <div class="col-sm-4">   
     <button mat-raised-button color="primary">Calcular</button>    

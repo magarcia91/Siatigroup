@@ -11,6 +11,7 @@ import { StartshipService } from 'src/app/services/startship.service';
 export class StartshipViewComponent implements OnInit {
   starshipForm: FormGroup;
   starshipFormControl = new FormControl();
+  resultado:any;
 
   constructor(private startshipService: StartshipService,private fb: FormBuilder,private router:Router) { 
     
@@ -26,18 +27,15 @@ export class StartshipViewComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-    
-    const parametros = { 
-      danioA: this.starshipForm.get("danioA")?.value,
-      danioB:this.starshipForm.get("danioB")?.value,
-      danioC: this.starshipForm.get("danioC")?.value,
-      velocidadLuz:this.starshipForm.get("velocidadLuz")?.value, 
-      res: this.starshipForm.get("res")?.value,                
-    }    
+  onSubmit(){ 
 
-    console.log(parametros);
-    this.startshipService.listResultados().subscribe(data => {
+    this.startshipService.listResultados(
+      Number(this.starshipForm.get("danioA")?.value),
+      Number(this.starshipForm.get("danioB")?.value),
+      Number(this.starshipForm.get("danioC")?.value),
+      Number(this.starshipForm.get("velocidadLuz")?.value)
+    ).subscribe((data:any) => {
+      this.resultado = data.mensaje;
       console.log(data)                     
     },     
     error => console.log(error));   
